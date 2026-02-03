@@ -1,0 +1,21 @@
+:root {
+  --peach: rgb(255, 216, 197);
+  --red: rgb(184, 35, 48);
+  --text-colour: #54565a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "ITC Mendoza Roman Std";
+  color: #4a2d2a;
+  background: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,9 @@
+.shipping {
+  background: var(--peach);
+  color: var(--text-colour);
+  text-align: center;
+  padding: 0.625rem 1em;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  font-weight: 800;
+}
