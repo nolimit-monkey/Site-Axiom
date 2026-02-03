@@ -1,0 +1,59 @@
+.product-page {
+  max-width: 1200px;
+  margin: 80px auto;
+  display: flex;
+  gap: 60px;
+  padding: 0 40px;
+}
+
+.product-gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.product-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-thumbnails img {
+  width: 70px;
+  cursor: pointer;
+  border: 1px solid #e5e5e5;
+}
+
+.product-main-image img {
+  width: 420px;
+}
+
+.product-info {
+  max-width: 420px;
+}
+
+.product-title {
+  font-family: "Alegreya", serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-add-cart {
+  padding: 14px 28px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
