@@ -2,10 +2,22 @@
 require "config/database.php";
 require_once __DIR__ . '/config/config.php';
 
-// Récupération des images
-$stmt = $pdo->prepare("SELECT * FROM produits");
+// Récupération des produits depuis la base de données
+$stmt = $pdo->prepare("
+    SELECT id, nom, description, image_url, prix, categorie_id, stock
+    FROM produits
+    ORDER BY categorie_id, id
+");
 $stmt->execute();
+
 $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+/* 2. Group products by category */
+$sections = [];
+
+foreach ($produits as $produit) {
+    $sections[$produit['categorie_id']][] = $produit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -56,24 +68,21 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </h2>
         <div class="collection--items">
           <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
-          <div class="collection--wrapper">
-            <div class="collection--img_container">
+            <div class="collection--wrapper">
+              <div class="collection--img_container">
+                
               <img
-                class="collection--item_img"
-                src="<?= BASE_URL ?>public/ficheproduitRETAILNOV24_before.webp"
-                alt="Collection item 1"
-              />
-              <img
-                class="collection--item_img_hover"
-                src="<?= BASE_URL ?>public/ficheproduitRETAILNOV24_after.webp"
-                alt="Collection item 1 after"
-              />
+                  class="collection--item_img"
+                  src="public/<?= htmlspecialchars($produits['image_url']) ?>"
+                  alt="<?= htmlspecialchars($produits['nom']) ?>"
+                />
+              </div>
+
+              <p class="collection--item_desc">
+                <?= htmlspecialchars($produits['nom']) ?><br />
+                À partir de <?= number_format($produits['prix'], 2, ',', ' ') ?> €
+              </p>
             </div>
-            <p class="collection--item_desc">
-              Noix de cajou salées biologiques sans huile <br />
-              A partir de $12.99
-            </p>
-          </div>
           </a>
           <div class="collection--wrapper">
             <div class="collection--img_container">

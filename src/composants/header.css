@@ -40,7 +40,7 @@ header {
 }
 
 .header--logo_img {
-  height: 5rem;
+  width: 12rem;
 }
 
 .header--icon_btn {

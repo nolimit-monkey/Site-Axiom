@@ -15,8 +15,8 @@
         <a class="header--logo" href="<?= BASE_URL ?>index.php">
             <img
                 class="header--logo_img"
-                src="<?= BASE_URL ?>/public/logo_red.png"
-                alt="Logo"
+                src="<?= BASE_URL ?>/public/logo_axiom.png"
+                alt="Logo Axiom auto"
             />
         </a>
 
