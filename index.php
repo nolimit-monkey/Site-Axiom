@@ -14,9 +14,11 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 /* 2. Group products by category */
 $sections = [];
+$byId     = [];
 
 foreach ($produits as $produit) {
     $sections[$produit['categorie_id']][] = $produit;
+    $byId[$produit['id']] = $produit;
 }
 ?>
 
@@ -29,12 +31,9 @@ foreach ($produits as $produit) {
     <link rel="stylesheet" href="<?= BASE_URL ?>src/style.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>src/utilitaire.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/header.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/shipping.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/accueil.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/collection.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/footer.css">
-
-    <link rel="icon" type="image/svg+xml" href="<?= BASE_URL ?>logo_page.svg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,7 +46,8 @@ foreach ($produits as $produit) {
       rel="stylesheet"
     />
 
-    <title><?= SITE_NAME ?></title>
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>public/logo_axiom-small.png">
+    <title> Home | AXIOM - L’excellence en mouvement</title>
   </head>
   <body>
     <?php require_once __DIR__ . '/header.php'; ?>
@@ -64,83 +64,100 @@ foreach ($produits as $produit) {
       <!-- Collection -->
       <section class="collection">
         <h2 class="collection--title">
-          tes grignotines festives pour un temps des fêtes réussi
+          Nos produits phares
         </h2>
         <div class="collection--items">
-          <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
-            <div class="collection--wrapper">
-              <div class="collection--img_container"> 
-                <img
-                    class="collection--item_img"
-                    src="<?= BASE_URL ?>public/<?= htmlspecialchars($sections[2][0]['image_url']) ?>"
-                    alt="<?= htmlspecialchars($sections[2][0]['nom']) ?>"
+          <div class="collection--wrapper categorie-1">
+            <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
+              <div class="collection--wrapper">
+                <div class="collection--img_container"> 
+                  <img
+                      class="collection--item_img"
+                      src="<?= BASE_URL ?>public/<?= htmlspecialchars($sections[1][0]['image_url']) ?>"
+                      alt="<?= htmlspecialchars($sections[1][0]['nom']) ?>"
+                    />
+                  <img
+                    class="collection--item_img_hover"
+                    src="<?= BASE_URL ?>public/logo_white.png"
+                    alt="Axiom auto logo"
                   />
-                <img
-                  class="collection--item_img_hover"
-                  src="<?= BASE_URL ?>public/logo_white.png"
-                  alt="Axiom auto logo"
-                />
-              </div>
+                </div>
 
-              <p class="collection--item_desc">
-                <?= htmlspecialchars($sections[2][0]['nom']) ?><br />
-                À partir de <?= number_format($sections[2][0]['prix'], 2, ',', ' ') ?> €
-              </p>
-            </div>
-          </a>
-          <div class="collection--wrapper">
-            <div class="collection--img_container">
-              <img
-                class="collection--item_img"
-                src="public/ficheproduitRETAILNOV24_before.webp"
-                alt="Collection item 2"
-              />
-              <img
-                class="collection--item_img_hover"
-                src="public/ficheproduitRETAILNOV24_after.webp"
-                alt="Collection item 2 after"
-              />
-            </div>
-            <p class="collection--item_desc">
-              Amandes BBQ à l'hickorie biologiques <br />
-              $12.99
-            </p>
+                <p class="collection--item_desc">
+                  <?= htmlspecialchars($sections[1][0]['nom']) ?><br />
+                  À partir de <?= number_format($sections[1][0]['prix'], 2, ',', ' ') ?> €
+                </p>
+              </div>
+            </a>
           </div>
-          <div class="collection--wrapper">
-            <div class="collection--img_container">
-              <img
-                class="collection--item_img"
-                src="public/ficheproduitRETAILNOV24_before.webp"
-                alt="Collection item 3"
-              />
-              <img
-                class="collection--item_img_hover"
-                src="public/ficheproduitRETAILNOV24_after.webp"
-                alt="Collection item 3 after"
-              />
-            </div>
-            <p class="collection--item_desc">
-              Amandes salées sans huile <br />
-              $12.99
-            </p>
+          <div class="collection--wrapper categorie-2">
+            <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
+              <div class="collection--wrapper">
+                <div class="collection--img_container"> 
+                  <img
+                      class="collection--item_img"
+                      src="<?= BASE_URL ?>public/<?= htmlspecialchars($sections[2][0]['image_url']) ?>"
+                      alt="<?= htmlspecialchars($sections[2][0]['nom']) ?>"
+                    />
+                  <img
+                    class="collection--item_img_hover"
+                    src="<?= BASE_URL ?>public/logo_white.png"
+                    alt="Axiom auto logo"
+                  />
+                </div>
+
+                <p class="collection--item_desc">
+                  <?= htmlspecialchars($sections[2][0]['nom']) ?><br />
+                  À partir de <?= number_format($sections[2][0]['prix'], 2, ',', ' ') ?> €
+                </p>
+              </div>
+            </a>
           </div>
-          <div class="collection--wrapper">
-            <div class="collection--img_container">
-              <img
-                class="collection--item_img"
-                src="public/ficheproduitRETAILNOV24_before.webp"
-                alt="Collection item 4"
-              />
-              <img
-                class="collection--item_img_hover"
-                src="public/ficheproduitRETAILNOV24_after.webp"
-                alt="Collection item 4 after"
-              />
-            </div>
-            <p class="collection--item_desc">
-              Amandes à l'érable biologiques <br />
-              $12.99
-            </p>
+          <div class="collection--wrapper categorie-3">
+            <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
+              <div class="collection--wrapper">
+                <div class="collection--img_container"> 
+                  <img
+                      class="collection--item_img"
+                      src="<?= BASE_URL ?>public/<?= htmlspecialchars($sections[3][0]['image_url']) ?>"
+                      alt="<?= htmlspecialchars($sections[3][0]['nom']) ?>"
+                    />
+                  <img
+                    class="collection--item_img_hover"
+                    src="<?= BASE_URL ?>public/logo_black.png"
+                    alt="Axiom auto logo"
+                  />
+                </div>
+
+                <p class="collection--item_desc">
+                  <?= htmlspecialchars($sections[3][0]['nom']) ?><br />
+                  À partir de <?= number_format($sections[3][0]['prix'], 2, ',', ' ') ?> €
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="collection--wrapper categorie-4">
+            <a href="<?= BASE_URL ?>produits/volant-carbone-alcantara.php" class="collection--clickable_area">
+              <div class="collection--wrapper">
+                <div class="collection--img_container"> 
+                  <img
+                      class="collection--item_img"
+                      src="<?= BASE_URL ?>public/<?= htmlspecialchars($sections[4][0]['image_url']) ?>"
+                      alt="<?= htmlspecialchars($sections[4][0]['nom']) ?>"
+                    />
+                  <img
+                    class="collection--item_img_hover"
+                    src="<?= BASE_URL ?>public/logo_white.png"
+                    alt="Axiom auto logo"
+                  />
+                </div>
+
+                <p class="collection--item_desc">
+                  <?= htmlspecialchars($sections[4][0]['nom']) ?><br />
+                  À partir de <?= number_format($sections[4][0]['prix'], 2, ',', ' ') ?> €
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -153,7 +170,7 @@ foreach ($produits as $produit) {
           <div class="footer--contenu">
             <p>Du déjeuner aux fringales de fin de soirée, on rend l’alimentation végétale facile, délicieuse et inspirante — avec des produits bio, naturels et savoureux à chaque bouchée.</p>
           </div>
-          <img class="footer--logo" src="public/logo.png" alt="Logo du site"/>
+          <img class="footer--logo" src="public/logo_axiom.png" alt="Logo du site"/>
           <div class="footer--social footer--title">Nous suivre</div>
             <ul class="footer--social Liste">
               <li class="Liste--item">

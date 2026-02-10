@@ -27,6 +27,17 @@ header {
   justify-content: flex-end;
 }
 
+.header--nav_left {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  position: relative; /* needed for submenu positioning */
+  cursor: pointer;
+}
+
 .header--nav_left a {
   font-weight: 700;
   font-size: 0.98rem;
@@ -41,6 +52,10 @@ header {
 
 .header--logo_img {
   width: 12rem;
+}
+
+.header--logo_img.small {
+  width: 2.5rem;
 }
 
 .header--icon_btn {
@@ -65,7 +80,7 @@ header {
 }
 
 .header--icon_btn:hover {
-  background-color: var(--blue);
+  background-color: var(--background);
   color: #ffffff;
   border-radius: 4px; /* très léger arrondi */
 }

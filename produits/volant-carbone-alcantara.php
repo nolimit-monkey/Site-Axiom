@@ -1,5 +1,19 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/database.php';
+
+// Récupération du produit depuis la base de données
+$stmt = $pdo->prepare("
+    SELECT id, nom, description, image_url, prix, categorie_id, stock
+    FROM produits
+    WHERE id = :id
+    LIMIT 1
+");
+$stmt->execute(['id' => 1]);
+
+$produit = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$title = $produit['nom'] ?? "Produit";
 ?>
 
 <!DOCTYPE html>
@@ -8,15 +22,12 @@ require_once __DIR__ . '/../config/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS globaux -->
     <link rel="stylesheet" href="<?= BASE_URL ?>/src/style.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/src/utilitaire.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/src/composants/header.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/src/composants/shipping.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/src/composants/footer.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/src/composants/product.css">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,7 +35,7 @@ require_once __DIR__ . '/../config/config.php';
       rel="stylesheet"
     >
 
-    <title><?= $title ?? 'Produit' ?></title>
+    <title><?= $title ?></title>
 </head>
 <body>
     <?php require_once __DIR__ . '/../header.php'; ?>

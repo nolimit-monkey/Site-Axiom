@@ -7,7 +7,7 @@
 .footer .footer--principale {
   padding: 3.6em 3.75em;
   margin: 0;
-  background-color: var(--peach); /* au lieu de --footer-background */
+  background-color: var(--background); /* au lieu de --footer-background */
 }
 
 .footer--principale {

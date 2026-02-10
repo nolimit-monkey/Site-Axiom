@@ -1,16 +1,11 @@
-<!-- Barre de livraison -->
-<section class="shipping">
-    Livraison gratuite à partir de 3000€ d'achat.
-</section>
-
 <!-- En-tête -->
 <header class="header">
     <nav class="header--navbar">
-        <div class="header--nav_left">
-            <a href="<?= BASE_URL ?>index.php">Magasiner</a>
-            <a href="#">Recettes</a>
-            <a href="#">Qui nous sommes</a>
-        </div>
+        <ul class="header--nav_left">
+            <li class="menu-item"><a href="<?= BASE_URL ?>index.php">Magasiner</a>
+            <li class="menu-item"><a href="#">Recettes</a>
+            <li class="menu-item"><a href="#">Qui nous sommes</a>
+        </ul>
 
         <a class="header--logo" href="<?= BASE_URL ?>index.php">
             <img
