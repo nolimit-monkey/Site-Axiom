@@ -69,18 +69,22 @@ foreach ($produits as $produit) {
         <div class="collection--items">
           <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
             <div class="collection--wrapper">
-              <div class="collection--img_container">
-                
-              <img
-                  class="collection--item_img"
-                  src="public/<?= htmlspecialchars($produits['image_url']) ?>"
-                  alt="<?= htmlspecialchars($produits['nom']) ?>"
+              <div class="collection--img_container"> 
+                <img
+                    class="collection--item_img"
+                    src="<?= BASE_URL ?>public/<?= htmlspecialchars($sections[2][0]['image_url']) ?>"
+                    alt="<?= htmlspecialchars($sections[2][0]['nom']) ?>"
+                  />
+                <img
+                  class="collection--item_img_hover"
+                  src="<?= BASE_URL ?>public/logo_white.png"
+                  alt="Axiom auto logo"
                 />
               </div>
 
               <p class="collection--item_desc">
-                <?= htmlspecialchars($produits['nom']) ?><br />
-                À partir de <?= number_format($produits['prix'], 2, ',', ' ') ?> €
+                <?= htmlspecialchars($sections[2][0]['nom']) ?><br />
+                À partir de <?= number_format($sections[2][0]['prix'], 2, ',', ' ') ?> €
               </p>
             </div>
           </a>
