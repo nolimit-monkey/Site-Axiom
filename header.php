@@ -1,31 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="<?= BASE_URL ?>/src/composants/header.css">
-</head>
-<body>
-
 <!-- Barre de livraison -->
 <section class="shipping">
-    Livraison gratuite à partir de $59* au Québec.
+    Livraison gratuite à partir de 3000€ d'achat.
 </section>
 
 <!-- En-tête -->
 <header class="header">
     <nav class="header--navbar">
         <div class="header--nav_left">
-            <a href="<?= BASE_URL ?>/index.php">Magasiner</a>
+            <a href="<?= BASE_URL ?>index.php">Magasiner</a>
             <a href="#">Recettes</a>
             <a href="#">Qui nous sommes</a>
         </div>
 
-        <a class="header--logo" href="<?= BASE_URL ?>/index.php">
+        <a class="header--logo" href="<?= BASE_URL ?>index.php">
             <img
                 class="header--logo_img"
-                src="<?= BASE_URL ?>/public/logo.png"
+                src="<?= BASE_URL ?>/public/logo_red.png"
                 alt="Logo"
             />
         </a>
@@ -35,23 +25,13 @@
             <svg
               width="18"
               height="18"
-              viewBox="0 0 24 24"
-              fill="none"
+              viewBox="0 0 17 23"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
-                d="M12 12.75c1.52 0 2.75-1.23 2.75-2.75S13.52 7.25 12 7.25 9.25 8.48 9.25 10 10.48 12.75 12 12.75z"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M18.5 10c0 4.19-3.85 7.69-5.79 9.22a.7.7 0 0 1-.87 0C9.89 17.69 6 14.19 6 10a6 6 0 1 1 12 0z"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                d="M8.37847162,0 C12.9986904,0 16.7579609,3.693 16.7579609,8.233 C16.7579609,11.34 13.2999205,16.476 9.91922299,21.089 L9.48060751,21.689 C9.22720785,22.04 8.81708711,22.249 8.37847162,22.249 C7.93985614,22.249 7.5297354,22.04 7.27633573,21.689 L6.83772025,21.088 C3.45600506,16.476 0,11.341 0,8.233 C0,3.693 3.75825285,0 8.37847162,0 Z M8.37847162,2.656 C5.24913842,2.656 2.70292975,5.158 2.70292975,8.233 C2.70292975,10.597 6.43675853,15.962 8.37847162,18.642 C10.3212024,15.961 14.0540135,10.596 14.0540135,8.233 C14.0540135,5.158 11.5078048,2.656 8.37847162,2.656 Z M8.54648883,5.5904 C9.94578416,5.5904 11.0794678,6.7044 11.0794678,8.0784 C11.0794678,9.4534 9.94578416,10.5684 8.54648883,10.5684 C7.14821117,10.5684 6.01452753,9.4534 6.01452753,8.0784 C6.01452753,6.7044 7.14821117,5.5904 8.54648883,5.5904 Z"
+                fill="currentColor"
               />
             </svg>
           </button>

@@ -47,19 +47,30 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 2.125rem;
   height: 2.125rem;
-  border-radius: 50%;
-  border: 1px solid #e7e0dc;
-  background: #fff;
+
+  border: none;
+  border-radius: 0;
+  background: transparent;
+
   color: var(--red);
-  transition: all 0.2s ease;
   padding: 0;
   cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .header--icon_btn:hover {
-  border-color: var(--red);
-  color: var(--red);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  background-color: var(--blue);
+  color: #ffffff;
+  border-radius: 4px; /* très léger arrondi */
+}
+
+.header--icon_btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }

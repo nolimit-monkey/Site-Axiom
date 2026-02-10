@@ -1,7 +1,6 @@
 <?php
 require "config/database.php";
 require_once __DIR__ . '/config/config.php';
-require_once __DIR__ . '/header.php';
 
 // Récupération des images
 $stmt = $pdo->prepare("SELECT * FROM produits");
@@ -13,15 +12,18 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="src/utilitaire.css">
-    <link rel="stylesheet" href="src/composants/shipping.css">
-    <link rel="stylesheet" href="src/composants/accueil.css">
-    <link rel="stylesheet" href="src/composants/collection.css">
-    <link rel="stylesheet" href="src/composants/footer.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="icon" type="image/svg+xml" href="/logo_page.svg" />
-    <title>Site E-Commerce</title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/utilitaire.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/header.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/shipping.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/accueil.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/collection.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>src/composants/footer.css">
+
+    <link rel="icon" type="image/svg+xml" href="<?= BASE_URL ?>logo_page.svg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,16 +34,18 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Pacifico&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><?= SITE_NAME ?></title>
   </head>
   <body>
+    <?php require_once __DIR__ . '/header.php'; ?>
     <!-- Contenu principal -->
     <main id="main" role="main">
       <!-- Image d'accueil -->
       <section class="accueil">
         <img
           class="accueil--image"
-          src="public/Accueil_banner.webp"
+          src="<?= BASE_URL ?>public/accueil_image.png"
           alt="Image d'accueil."
         />
       </section>
@@ -51,17 +55,17 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
           tes grignotines festives pour un temps des fêtes réussi
         </h2>
         <div class="collection--items">
-          <a href="produits/produit.php" class="collection--clickable_area">
+          <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
           <div class="collection--wrapper">
             <div class="collection--img_container">
               <img
                 class="collection--item_img"
-                src="public/ficheproduitRETAILNOV24_before.webp"
+                src="<?= BASE_URL ?>public/ficheproduitRETAILNOV24_before.webp"
                 alt="Collection item 1"
               />
               <img
                 class="collection--item_img_hover"
-                src="public/ficheproduitRETAILNOV24_after.webp"
+                src="<?= BASE_URL ?>public/ficheproduitRETAILNOV24_after.webp"
                 alt="Collection item 1 after"
               />
             </div>
@@ -193,7 +197,7 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
       <div class="footer--bas">
         <div class="Footer__Copyright">
-          <a href="/" class="footer--nom_magasin">© grando natural</a>
+          <a href="<?= BASE_URL ?>index.php" class="footer--nom_magasin">© AXIOM auto</a>
           <p class="footer--autheur">Made by Mandresy RAPHEHISON</p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "produits";
+$dbname = "axiom";
 $username = "root";
 $password = "FritesCh@udes834";
 

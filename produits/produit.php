@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-require_once __DIR__ . '/../header.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +27,7 @@ require_once __DIR__ . '/../header.php';
     <title><?= $title ?? 'Produit' ?></title>
 </head>
 <body>
+    <?php require_once __DIR__ . '/../header.php'; ?>
     <main class="product-page">
 
     <section class="product-gallery">

@@ -5,7 +5,7 @@ if (!defined('APP_STARTED')) {
 }
 
 // Chemin de base du site (IMPORTANT)
-define('BASE_URL', '/SITE'); // ← adapte si besoin
+define('BASE_URL', '/axiom/'); // ← adapte si besoin
 
 // Autres constantes utiles plus tard
-define('SITE_NAME', 'Site E-Commerce');
+define('SITE_NAME', 'Axiom auto');
