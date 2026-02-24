@@ -14,6 +14,7 @@ header {
   align-items: center;
   padding: 0.875rem 2.25rem;
   gap: 1.125rem;
+  position: relative;
 }
 
 .header--nav_left,
@@ -33,9 +34,14 @@ header {
   padding: 0;
 }
 
-.menu-item {
-  position: relative; /* needed for submenu positioning */
+.header-item {
+  position: static;
   cursor: pointer;
+}
+
+.header-item--dropdown {
+  padding-bottom: 1.5rem;
+  margin-bottom: -1.5rem;
 }
 
 .header--nav_left a {
@@ -52,10 +58,6 @@ header {
 
 .header--logo_img {
   width: 12rem;
-}
-
-.header--logo_img.small {
-  width: 2.5rem;
 }
 
 .header--icon_btn {
@@ -88,4 +90,75 @@ header {
 .header--icon_btn:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
+}
+
+.Menu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.875rem 2.25rem;
+  overflow: auto;
+  background-color: var(--white, #fff);
+  color: inherit;
+  box-shadow: inherit;
+  border-bottom: none;
+  transition:
+    opacity 0.2s ease-in-out,
+    visibility 0s linear 0.3s;
+}
+
+.Menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -24px;
+  height: 24px;
+}
+
+.header-item:hover .Menu,
+.header-item:focus-within .Menu,
+.Menu:hover {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.Menu__Item {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  min-width: 9rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Menu__List {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.Menu .Menu__Link {
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.Menu .Menu__Link:hover {
+  color: #000000;
+  text-decoration: underline;
 }

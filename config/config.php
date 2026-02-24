@@ -1,8 +1,7 @@
 <?php
-// Sécurité : empêche l'accès direct si inclus
+// Sécurité
 if (!defined('APP_STARTED')) {
     define('APP_STARTED', true);
 }
 
-// Chemin de base du site (IMPORTANT)
-define('BASE_URL', '/axiom/'); // ← adapte si besoin
+define('BASE_URL', '/axiom/');

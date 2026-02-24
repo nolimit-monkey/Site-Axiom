@@ -48,6 +48,10 @@
   margin-bottom: 30px;
 }
 
+.product-add-form {
+  margin: 0;
+}
+
 .btn-add-cart {
   padding: 14px 28px;
   background: black;

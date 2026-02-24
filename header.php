@@ -2,9 +2,45 @@
 <header class="header">
     <nav class="header--navbar">
         <ul class="header--nav_left">
-            <li class="menu-item"><a href="<?= BASE_URL ?>index.php">Magasiner</a>
-            <li class="menu-item"><a href="#">Recettes</a>
-            <li class="menu-item"><a href="#">Qui nous sommes</a>
+            <li class="header-item header-item--dropdown">
+              <a href="<?= BASE_URL ?>index.php">Catégories</a>
+              <div class="Menu">
+                <div class="Menu__Item">
+                  <a class="Menu__Title Heading">Moteur & Performance</a>
+                  <ul class="Menu__List">
+                    <li><a class="Menu__Link" href="#">Turbo Stage 1</a></li>
+                    <li><a class="Menu__Link" href="#">Admission Carbone</a></li>
+                    <li><a class="Menu__Link" href="#">Ligne d’échappement sport</a></li>
+                  </ul>
+                </div>
+                <div class="Menu__Item">
+                  <a class="Menu__Title Heading">Freinage & Liaisons au sol</a>
+                  <ul class="Menu__List">
+                    <li><a class="Menu__Link" href="#">Disques percés</a></li>
+                    <li><a class="Menu__Link" href="#">Étriers 6 pistons</a></li>
+                    <li><a class="Menu__Link" href="#">Combinés filetés</a></li>
+                  </ul>
+                </div>
+                <div class="Menu__Item">                  
+                  <a class="Menu__Title Heading">Carrosserie & Extérieur</a>
+                  <ul class="Menu__List">
+                    <li><a class="Menu__Link" href="#">Diffuseur arrière</a></li>
+                    <li><a class="Menu__Link" href="#">Spoiler GT</a></li>
+                    <li><a class="Menu__Link" href="#">Coques de rétros carbone</a></li>
+                  </ul>
+                </div>
+                <div class="Menu__Item">
+                  <a class="Menu__Title Heading">Intérieur & Accessoires</a>
+                  <ul class="Menu__List">
+                    <li><a class="Menu__Link" href="#">Volant alcantara</a></li>
+                    <li><a class="Menu__Link" href="#">Pédalier alu</a></li>
+                    <li><a class="Menu__Link" href="#">Tapis sur‑mesure</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="header-item"><a href="#">Inventaire</a></li>
+            <li class="header-item"><a href="#">Qui nous sommes</a></li>
         </ul>
 
         <a class="header--logo" href="<?= BASE_URL ?>index.php">
@@ -71,7 +107,7 @@
               />
             </svg>
           </button>
-          <button class="header--icon_btn" aria-label="Panier">
+          <a class="header--icon_btn" href="<?= BASE_URL ?>panier.php" aria-label="Panier">
             <svg
               width="18"
               height="18"
@@ -89,7 +125,7 @@
               <circle cx="10" cy="19" r="1" fill="currentColor" />
               <circle cx="17" cy="19" r="1" fill="currentColor" />
             </svg>
-          </button>
+          </a>
         </div>
     </nav>
 </header>

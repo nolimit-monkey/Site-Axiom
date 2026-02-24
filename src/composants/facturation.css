@@ -1,0 +1,121 @@
+.billing-page {
+  min-height: calc(100vh - 90px);
+  padding: 2.2rem clamp(1rem, 4vw, 4rem) 3.4rem;
+  background: #f3f3f3;
+}
+
+.billing-page__container {
+  width: min(1500px, 100%);
+  margin: 0 auto;
+}
+
+.billing-page__eyebrow {
+  margin: 0 0 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8f8f8f;
+  font-family: "Alegreya", serif;
+  font-weight: 700;
+}
+
+.billing-page__container h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--red);
+  font-family: "Alegreya", serif;
+}
+
+.billing-page__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1rem;
+}
+
+.billing-card,
+.delivery-card {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  padding: 1.2rem 1.1rem;
+}
+
+.billing-card__title,
+.delivery-card__title {
+  margin: 0 0 1rem;
+  font-family: "Alegreya", serif;
+  color: #232323;
+}
+
+.billing-card__placeholder {
+  min-height: 300px;
+  border: 1px dashed #c9c9c9;
+  background: #fbfbfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.billing-card__placeholder p {
+  margin: 0;
+  color: #707070;
+}
+
+.delivery-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.delivery-form__option {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #d9d9d9;
+  background: #ffffff;
+}
+
+.delivery-form__option input {
+  width: 16px;
+  height: 16px;
+}
+
+.delivery-form__option span {
+  color: #3c3c3c;
+}
+
+.delivery-form__submit {
+  margin-top: 0.6rem;
+  min-height: 48px;
+  border: 1px solid var(--red);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--red);
+  font-family: "Alegreya", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.delivery-form__submit:hover {
+  background: var(--red);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .billing-page {
+    padding: 1.4rem 1rem 2.4rem;
+  }
+
+  .billing-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .billing-card__placeholder {
+    min-height: 200px;
+  }
+}

@@ -8,6 +8,7 @@ $stmt = $pdo->prepare("
     FROM produits
     ORDER BY categorie_id, id
 ");
+
 $stmt->execute();
 
 $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -68,7 +69,7 @@ foreach ($produits as $produit) {
         </h2>
         <div class="collection--items">
           <div class="collection--wrapper categorie-1">
-            <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[1][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container"> 
                   <img
@@ -78,7 +79,7 @@ foreach ($produits as $produit) {
                     />
                   <img
                     class="collection--item_img_hover"
-                    src="<?= BASE_URL ?>public/logo_white.png"
+                    src="<?= BASE_URL ?>public/logo_axiom-small.png"
                     alt="Axiom auto logo"
                   />
                 </div>
@@ -91,7 +92,7 @@ foreach ($produits as $produit) {
             </a>
           </div>
           <div class="collection--wrapper categorie-2">
-            <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[2][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container"> 
                   <img
@@ -101,7 +102,7 @@ foreach ($produits as $produit) {
                     />
                   <img
                     class="collection--item_img_hover"
-                    src="<?= BASE_URL ?>public/logo_white.png"
+                    src="<?= BASE_URL ?>public/logo_axiom-small.png"
                     alt="Axiom auto logo"
                   />
                 </div>
@@ -114,7 +115,7 @@ foreach ($produits as $produit) {
             </a>
           </div>
           <div class="collection--wrapper categorie-3">
-            <a href="<?= BASE_URL ?>produits/produit.php" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[3][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container"> 
                   <img
@@ -124,7 +125,7 @@ foreach ($produits as $produit) {
                     />
                   <img
                     class="collection--item_img_hover"
-                    src="<?= BASE_URL ?>public/logo_black.png"
+                    src="<?= BASE_URL ?>public/logo_axiom-small.png"
                     alt="Axiom auto logo"
                   />
                 </div>
@@ -137,7 +138,7 @@ foreach ($produits as $produit) {
             </a>
           </div>
           <div class="collection--wrapper categorie-4">
-            <a href="<?= BASE_URL ?>produits/volant-carbone-alcantara.php" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[4][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container"> 
                   <img
@@ -147,7 +148,7 @@ foreach ($produits as $produit) {
                     />
                   <img
                     class="collection--item_img_hover"
-                    src="<?= BASE_URL ?>public/logo_white.png"
+                    src="<?= BASE_URL ?>public/logo_axiom-small.png"
                     alt="Axiom auto logo"
                   />
                 </div>
