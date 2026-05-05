@@ -1,4 +1,7 @@
-
+<?php
+/** @var array $sections */
+/** @var array $byId */
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
