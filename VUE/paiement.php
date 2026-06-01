@@ -1,10 +1,11 @@
 <?php
-/** @var string|null $deliveryMode */
-/** @var string $deliveryLabel */
-/** @var float $shippingAmount */
-/** @var array $cartItems */
-/** @var float $subtotal */
-/** @var float $grandTotal */
+// Variables injectées par PaiementControleur :
+/** @var string|null $deliveryMode   Clé brute ('standard', 'express', 'pickup') pour le champ caché */
+/** @var string      $deliveryLabel  Libellé lisible du mode de livraison */
+/** @var float       $shippingAmount Frais de port en euros */
+/** @var array       $cartItems      Articles : nom, quantity, line_total */
+/** @var float       $subtotal       Total articles hors livraison */
+/** @var float       $grandTotal     subtotal + shippingAmount */
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,11 +38,16 @@
         <p class="payment-page__subtitle">Choisissez une methode de paiement puis confirmez votre commande.</p>
 
         <form class="payment-layout" method="post" action="<?= BASE_URL ?>confirmation">
+          <!-- Propage le delivery_mode jusqu'à /confirmation via champ caché,
+               car il n'y a pas de stockage intermédiaire en session. -->
           <input type="hidden" name="delivery_mode" value="<?= htmlspecialchars((string) $deliveryMode) ?>" />
 
           <section class="payment-main">
             <h2 class="payment-main__title">Methode de paiement</h2>
 
+            <!-- Sélecteur de méthode de paiement en CSS pur.
+                 Les 3 radio inputs sont placés avant les panneaux ; le CSS utilise
+                 :checked ~ .payment-methods__panels pour afficher le bon panneau. -->
             <div class="payment-methods">
               <input type="radio" id="method-card" name="payment_method" value="card" checked />
               <input type="radio" id="method-paypal" name="payment_method" value="paypal" />

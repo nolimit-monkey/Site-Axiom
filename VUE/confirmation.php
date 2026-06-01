@@ -1,11 +1,12 @@
 <?php
-/** @var string $reference */
-/** @var string $paymentLabel */
-/** @var string $deliveryLabel */
-/** @var array $cartItems */
-/** @var float $subtotal */
-/** @var float $shippingAmount */
-/** @var float $grandTotal */
+// Variables injectées par ConfirmationControleur :
+/** @var string $reference     Référence unique générée pour cette commande (ex : AXM-20260601-A3F9C2) */
+/** @var string $paymentLabel  Libellé lisible du moyen de paiement */
+/** @var string $deliveryLabel Libellé lisible du mode de livraison */
+/** @var array  $cartItems     Articles : nom, quantity, line_total */
+/** @var float  $subtotal      Total articles hors livraison */
+/** @var float  $shippingAmount */
+/** @var float  $grandTotal    subtotal + shippingAmount */
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -39,6 +40,8 @@
           Merci pour votre commande. Vous pouvez imprimer ce recapitulatif.
         </p>
 
+        <!-- Zone délimitée pour l'impression (window.print() via le bouton ci-dessous).
+             La classe .no-print masque les boutons d'action dans la feuille CSS d'impression. -->
         <div class="confirm-sheet" id="print-area">
           <header class="confirm-sheet__head">
             <div>

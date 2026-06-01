@@ -1,6 +1,7 @@
 <?php
-/** @var array $sections */
-/** @var array $byId */
+// Variables injectées par AccueilControleur via Controleur::render() :
+/** @var array $sections  Produits groupés par categorie_id : $sections[1][0] = 1er produit cat. 1 */
+/** @var array $byId      Produits indexés par id : $byId[3] = produit dont l'id est 3 */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,12 +42,15 @@
           alt="Image d'accueil."
         />
       </section>
-      <!-- Collection -->
+      <!-- Collection : grille des 4 catégories, une carte par catégorie.
+           Chaque carte affiche le premier produit de la catégorie ($sections[N][0])
+           et pointe vers sa fiche détail via ?id=. -->
       <section class="collection">
         <h2 class="collection--title">
           Nos produits phares
         </h2>
         <div class="collection--items">
+          <!-- Catégorie 1 : premier produit mis en avant -->
           <div class="collection--wrapper categorie-1">
             <a href="<?= BASE_URL ?>produit?id=<?= (int) $sections[1][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
@@ -70,6 +74,7 @@
               </div>
             </a>
           </div>
+          <!-- Catégorie 2 -->
           <div class="collection--wrapper categorie-2">
             <a href="<?= BASE_URL ?>produit?id=<?= (int) $sections[2][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
@@ -93,6 +98,7 @@
               </div>
             </a>
           </div>
+          <!-- Catégorie 3 -->
           <div class="collection--wrapper categorie-3">
             <a href="<?= BASE_URL ?>produit?id=<?= (int) $sections[3][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
@@ -116,6 +122,7 @@
               </div>
             </a>
           </div>
+          <!-- Catégorie 4 -->
           <div class="collection--wrapper categorie-4">
             <a href="<?= BASE_URL ?>produit?id=<?= (int) $sections[4][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">

@@ -1,11 +1,12 @@
 <?php
-/** @var array|null $produit */
-/** @var string $nom */
-/** @var string $description */
-/** @var float|null $prix */
-/** @var string|null $imageUrl */
-/** @var string $imageSrc */
-/** @var string $title */
+// Variables injectées par ProduitControleur via Controleur::render() :
+/** @var array|null $produit   Tableau complet du produit, null si non trouvé */
+/** @var string     $nom       Nom du produit (ou "Produit introuvable") */
+/** @var string     $description */
+/** @var float|null $prix      null si le produit est introuvable */
+/** @var string|null $imageUrl Nom du fichier image dans /public/, null si absent */
+/** @var string     $imageSrc  URL complète vers l'image (avec fallback logo) */
+/** @var string     $title     Titre de l'onglet navigateur */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +33,7 @@
     <?php require_once __DIR__ . '/header.php'; ?>
     <main class="product-page">
 
+        <!-- Galerie : vignette latérale (visible seulement si une image existe) + image principale -->
         <section class="product-gallery">
             <?php if (!empty($imageUrl)) : ?>
             <div class="product-thumbnails">
@@ -60,6 +62,8 @@
             </p>
 
             <?php if ($produit) : ?>
+            <!-- Formulaire POST vers la même URL (/produit?id=X).
+                 ProduitControleur détecte le POST, incrémente la session, redirige vers /panier. -->
             <form method="post" class="product-add-form">
                 <input type="hidden" name="product_id" value="<?= (int) $produit['id'] ?>">
                 <button class="btn-add-cart" type="submit">

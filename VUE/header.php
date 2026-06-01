@@ -1,7 +1,9 @@
-<!-- En-tête -->
+<!-- En-tête commun à toutes les pages, inclus via require_once dans chaque vue.
+     BASE_URL est définie dans config/config.php et préfixe tous les liens. -->
 <header class="header">
     <nav class="header--navbar">
         <ul class="header--nav_left">
+            <!-- Élément avec menu déroulant multi-colonnes (CSS-only) -->
             <li class="header-item header-item--dropdown">
               <a href="<?= BASE_URL ?>">Catégories</a>
               <div class="Menu">
@@ -51,6 +53,7 @@
             />
         </a>
 
+        <!-- Icônes de droite : localisation, compte, favoris, panier -->
         <div class="header--nav_right">
           <button class="header--icon_btn" aria-label="Localiser">
             <svg

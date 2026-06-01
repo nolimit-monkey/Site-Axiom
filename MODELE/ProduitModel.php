@@ -1,6 +1,7 @@
 <?php
 namespace Axiom\Modele;
 
+// Modèle gérant les accès BDD pour la table `produits`.
 class ProduitModel {
     private \PDO $pdo;
 
@@ -8,6 +9,11 @@ class ProduitModel {
         $this->pdo = $pdo;
     }
 
+    // Retourne tous les produits organisés en deux structures parallèles :
+    //   'sections' : [ categorie_id => [ produit, produit, ... ], ... ]
+    //   'byId'     : [ id => produit, ... ]
+    // La vue accueil.php utilise $sections[1][0] pour afficher le premier produit
+    // de chaque catégorie dans la grille de mise en avant.
     public function findAllGroupedByCategory(): array {
         $stmt = $this->pdo->prepare("
             SELECT id, nom, description, image_url, prix, categorie_id, stock
@@ -27,6 +33,7 @@ class ProduitModel {
         return ['sections' => $sections, 'byId' => $byId];
     }
 
+    // Retourne un seul produit par son identifiant, ou null s'il n'existe pas.
     public function findById(int $id): ?array {
         $stmt = $this->pdo->prepare("
             SELECT id, nom, description, image_url, prix, categorie_id, stock

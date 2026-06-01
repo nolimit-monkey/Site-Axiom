@@ -37,6 +37,8 @@
 
           <aside class="delivery-card">
             <h2 class="delivery-card__title">Mode de livraison</h2>
+            <!-- Le delivery_mode sélectionné ici est transmis en POST à /paiement,
+                 qui s'en sert pour calculer les frais et afficher le récapitulatif. -->
             <form class="delivery-form" method="post" action="<?= BASE_URL ?>paiement">
               <label class="delivery-form__option">
                 <input type="radio" name="delivery_mode" value="standard" required />

@@ -1,15 +1,19 @@
 <?php
 namespace Axiom\Modele;
 
+// Modèle de la page paiement.
+// Calcule le récapitulatif de commande : articles, frais de livraison et total.
 class PaiementModel {
     private \PDO $pdo;
 
+    // Table de correspondance mode de livraison → libellé affiché.
     private array $deliveryLabels = [
         'standard' => 'Standard (3 a 5 jours)',
         'express'  => 'Express (24h a 48h)',
         'pickup'   => 'Retrait en magasin',
     ];
 
+    // Table de correspondance mode de livraison → montant des frais (en euros).
     private array $deliveryPrices = [
         'standard' => 7.90,
         'express'  => 14.90,
@@ -20,10 +24,15 @@ class PaiementModel {
         $this->pdo = $pdo;
     }
 
+    // Construit le récapitulatif complet à partir du panier en session et du mode de livraison.
+    // Retourne un tableau avec libellés, frais, articles enrichis depuis la BDD et totaux.
     public function getOrderSummary(array $cartSession, ?string $deliveryMode): array {
+        // Résolution du libellé et du montant depuis les tables ci-dessus.
+        // Si le mode est inconnu (null ou valeur inattendue), on utilise des valeurs par défaut.
         $deliveryLabel  = $this->deliveryLabels[$deliveryMode] ?? 'Non selectionne';
         $shippingAmount = $this->deliveryPrices[$deliveryMode] ?? 0.00;
 
+        // Assainissement du panier (même logique que PanierModel).
         $cart = [];
         foreach ($cartSession as $productId => $quantity) {
             $cleanProductId = filter_var($productId, FILTER_VALIDATE_INT);
@@ -71,6 +80,7 @@ class PaiementModel {
             'shippingAmount' => $shippingAmount,
             'cartItems'      => $cartItems,
             'subtotal'       => $subtotal,
+            // grandTotal = sous-total articles + frais de livraison
             'grandTotal'     => $subtotal + $shippingAmount,
         ];
     }

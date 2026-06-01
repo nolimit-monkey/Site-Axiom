@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- Page 404 affichée par index.php pour toute URL non reconnue par le routeur. -->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">

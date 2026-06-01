@@ -30,6 +30,9 @@
           Renseignez vos informations pour continuer.
         </p>
 
+        <!-- Les données saisies ici (prénom, nom, email…) sont soumises à /facturation.
+             Actuellement elles ne sont pas persistées en BDD : la page sert surtout
+             à collecter les infos pour la suite du tunnel. -->
         <form class="signup-form" method="post" action="<?= BASE_URL ?>facturation">
           <label class="signup-form__field">
             <span>Prenom</span>

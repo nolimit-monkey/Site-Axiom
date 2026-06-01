@@ -1,6 +1,7 @@
 <?php
-/** @var array $cartItems */
-/** @var float $total */
+// Variables injectées par PanierControleur :
+/** @var array $cartItems  Liste des articles : chaque entrée contient id, nom, quantity, unit_price, line_total */
+/** @var float $total      Somme de tous les line_total (hors livraison) */
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,6 +46,7 @@
                 Quantite : <?= (int) $item['quantity'] ?> x
                 <?= number_format($item['unit_price'], 2, ',', ' ') ?> &euro;
               </p>
+              <!-- POST vers /panier avec remove_product_id → PanierControleur supprime l'article de la session -->
               <form method="post" class="cart-page__remove-form">
                 <input type="hidden" name="remove_product_id" value="<?= (int) $item['id'] ?>">
                 <button type="submit" class="cart-page__remove-btn">Supprimer</button>

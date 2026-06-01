@@ -3,6 +3,9 @@ namespace Axiom\Controleur;
 
 use Axiom\Modele\PaiementModel;
 
+// Contrôleur de la page de paiement (étape 3 du tunnel de commande).
+// Reçoit le mode de livraison choisi à l'étape précédente et construit
+// le récapitulatif de commande (articles + frais de livraison + total).
 class PaiementControleur extends Controleur {
     private PaiementModel $model;
 
@@ -15,6 +18,8 @@ class PaiementControleur extends Controleur {
             session_start();
         }
 
+        // Lecture du mode de livraison en priorité depuis POST (formulaire facturation),
+        // avec fallback GET pour permettre un rechargement direct de la page.
         $deliveryMode = filter_input(INPUT_POST, 'delivery_mode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         if (!$deliveryMode) {
             $deliveryMode = filter_input(INPUT_GET, 'delivery_mode', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
