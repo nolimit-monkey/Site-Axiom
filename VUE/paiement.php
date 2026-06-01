@@ -36,7 +36,7 @@
         <h1 id="payment-title">Paiement securise</h1>
         <p class="payment-page__subtitle">Choisissez une methode de paiement puis confirmez votre commande.</p>
 
-        <form class="payment-layout" method="post" action="<?= BASE_URL ?>confirmation.php">
+        <form class="payment-layout" method="post" action="<?= BASE_URL ?>confirmation">
           <input type="hidden" name="delivery_mode" value="<?= htmlspecialchars((string) $deliveryMode) ?>" />
 
           <section class="payment-main">

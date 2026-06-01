@@ -30,7 +30,7 @@
           Renseignez vos informations pour continuer.
         </p>
 
-        <form class="signup-form" method="post" action="<?= BASE_URL ?>facturation.php">
+        <form class="signup-form" method="post" action="<?= BASE_URL ?>facturation">
           <label class="signup-form__field">
             <span>Prenom</span>
             <input type="text" name="prenom" autocomplete="given-name" required />

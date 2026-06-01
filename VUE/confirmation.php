@@ -83,7 +83,7 @@
           <button type="button" class="confirm-page__print-btn" onclick="window.print()">
             Imprimer la confirmation
           </button>
-          <a class="confirm-page__home-btn" href="<?= BASE_URL ?>index.php">Retour a l accueil</a>
+          <a class="confirm-page__home-btn" href="<?= BASE_URL ?>">Retour a l accueil</a>
         </div>
       </section>
     </main>

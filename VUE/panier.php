@@ -63,11 +63,11 @@
         <?php endif; ?>
 
         <div class="cart-page__actions">
-          <a class="cart-page__cta" href="<?= BASE_URL ?>index.php">
+          <a class="cart-page__cta" href="<?= BASE_URL ?>">
             Continuer vos achats
           </a>
           <?php if ($cartItems !== []) : ?>
-          <a class="cart-page__confirm" href="<?= BASE_URL ?>inscription.php">
+          <a class="cart-page__confirm" href="<?= BASE_URL ?>inscription">
             Confirmer la commande
           </a>
           <?php endif; ?>

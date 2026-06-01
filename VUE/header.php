@@ -3,7 +3,7 @@
     <nav class="header--navbar">
         <ul class="header--nav_left">
             <li class="header-item header-item--dropdown">
-              <a href="<?= BASE_URL ?>index.php">Catégories</a>
+              <a href="<?= BASE_URL ?>">Catégories</a>
               <div class="Menu">
                 <div class="Menu__Item">
                   <a class="Menu__Title Heading">Moteur & Performance</a>
@@ -43,7 +43,7 @@
             <li class="header-item"><a href="#">Qui nous sommes</a></li>
         </ul>
 
-        <a class="header--logo" href="<?= BASE_URL ?>index.php">
+        <a class="header--logo" href="<?= BASE_URL ?>">
             <img
                 class="header--logo_img"
                 src="<?= BASE_URL ?>/public/logo_axiom.png"
@@ -107,7 +107,7 @@
               />
             </svg>
           </button>
-          <a class="header--icon_btn" href="<?= BASE_URL ?>panier.php" aria-label="Panier">
+          <a class="header--icon_btn" href="<?= BASE_URL ?>panier" aria-label="Panier">
             <svg
               width="18"
               height="18"

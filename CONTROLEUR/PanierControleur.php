@@ -1,22 +1,36 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+namespace Axiom\Controleur;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $removeProductId = filter_input(INPUT_POST, 'remove_product_id', FILTER_VALIDATE_INT);
+use Axiom\Modele\PanierModel;
 
-    if ($removeProductId && isset($_SESSION['panier'][$removeProductId])) {
-        unset($_SESSION['panier'][$removeProductId]);
+class PanierControleur extends Controleur {
+    private PanierModel $model;
 
-        if ($_SESSION['panier'] === []) {
-            unset($_SESSION['panier']);
-        }
+    public function __construct(\PDO $pdo) {
+        $this->model = new PanierModel($pdo);
     }
 
-    header('Location: ' . BASE_URL . 'panier.php');
-    exit;
-}
+    public function index(): void {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
-require_once __DIR__ . '/../MODELE/PanierModel.php';
-require_once __DIR__ . '/../VUE/panier.php';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $removeProductId = filter_input(INPUT_POST, 'remove_product_id', FILTER_VALIDATE_INT);
+            if ($removeProductId && isset($_SESSION['panier'][$removeProductId])) {
+                unset($_SESSION['panier'][$removeProductId]);
+                if ($_SESSION['panier'] === []) {
+                    unset($_SESSION['panier']);
+                }
+            }
+            header('Location: ' . BASE_URL . 'panier');
+            exit;
+        }
+
+        $data = $this->model->getCartItems($_SESSION['panier'] ?? []);
+        $this->render('panier', [
+            'cartItems' => $data['items'],
+            'total'     => $data['total'],
+        ]);
+    }
+}

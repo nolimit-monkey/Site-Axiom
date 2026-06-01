@@ -37,7 +37,7 @@
 
           <aside class="delivery-card">
             <h2 class="delivery-card__title">Mode de livraison</h2>
-            <form class="delivery-form" method="post" action="<?= BASE_URL ?>paiement.php">
+            <form class="delivery-form" method="post" action="<?= BASE_URL ?>paiement">
               <label class="delivery-form__option">
                 <input type="radio" name="delivery_mode" value="standard" required />
                 <span>Standard (3 a 5 jours)</span>

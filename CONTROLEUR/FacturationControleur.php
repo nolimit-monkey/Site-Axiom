@@ -1,2 +1,8 @@
 <?php
-require_once __DIR__ . '/../VUE/facturation.php';
+namespace Axiom\Controleur;
+
+class FacturationControleur extends Controleur {
+    public function index(): void {
+        $this->render('facturation');
+    }
+}
