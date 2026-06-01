@@ -30,7 +30,7 @@
     <title> Home | AXIOM - L'excellence en mouvement</title>
   </head>
   <body>
-    <?php require_once __DIR__ . '/../header.php'; ?>
+    <?php require_once __DIR__ . '/header.php'; ?>
     <!-- Contenu principal -->
     <main id="main" role="main">
       <!-- Image d'accueil -->
