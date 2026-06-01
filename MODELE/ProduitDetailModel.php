@@ -1,4 +1,5 @@
 <?php
+/** @var int|false $id */
 $produit = null;
 if ($id) {
     $stmt = $pdo->prepare("

@@ -48,7 +48,7 @@
         </h2>
         <div class="collection--items">
           <div class="collection--wrapper categorie-1">
-            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[1][0]['id'] ?>" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produit.php?id=<?= (int) $sections[1][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container">
                   <img
@@ -71,7 +71,7 @@
             </a>
           </div>
           <div class="collection--wrapper categorie-2">
-            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[2][0]['id'] ?>" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produit.php?id=<?= (int) $sections[2][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container">
                   <img
@@ -94,7 +94,7 @@
             </a>
           </div>
           <div class="collection--wrapper categorie-3">
-            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[3][0]['id'] ?>" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produit.php?id=<?= (int) $sections[3][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container">
                   <img
@@ -117,7 +117,7 @@
             </a>
           </div>
           <div class="collection--wrapper categorie-4">
-            <a href="<?= BASE_URL ?>produits/produit.php?id=<?= (int) $sections[4][0]['id'] ?>" class="collection--clickable_area">
+            <a href="<?= BASE_URL ?>produit.php?id=<?= (int) $sections[4][0]['id'] ?>" class="collection--clickable_area">
               <div class="collection--wrapper">
                 <div class="collection--img_container">
                   <img
