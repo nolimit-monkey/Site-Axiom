@@ -32,7 +32,7 @@ Placer le dossier dans `C:\xampp\htdocs\axiom` (ou l'équivalent de votre `htdoc
 
 1. Ouvrir **phpMyAdmin** (ou un client MySQL)
 2. Créer une base nommée `axiom`
-3. Importer le fichier SQL du projet (si disponible)
+3. Importer le fichier SQL du projet axiom.sql
 
 ### 3. Configuration de la base de données
 
@@ -44,9 +44,6 @@ $dbname   = "axiom";
 $username = "root";
 $password = "votre_mot_de_passe";
 ```
-
-> Ne jamais committer ce fichier avec des identifiants réels en production.
-
 ### 4. Apache — activer `mod_rewrite`
 
 Le fichier [`.htaccess`](.htaccess) redirige toutes les requêtes vers `index.php`.  
@@ -69,7 +66,7 @@ Et que le VirtualHost autorise les overrides :
 Démarrer **Apache** et **MySQL** depuis le panneau XAMPP, puis ouvrir :
 
 ```
-http://localhost/axiom/
+http://localhost/axiom/site-axiome
 ```
 
 ---

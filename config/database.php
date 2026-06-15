@@ -4,7 +4,7 @@
 $host = "localhost";
 $dbname = "axiom";
 $username = "root";
-$password = "FritesCh@udes834";
+$password = "";
 
 // Création de la connexion PDO avec charset UTF-8.
 // $pdo est injecté dans les contrôleurs qui en ont besoin via index.php.
