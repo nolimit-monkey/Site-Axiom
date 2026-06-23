@@ -30,9 +30,37 @@ Placer le dossier dans `C:\xampp\htdocs\axiom` (ou l'équivalent de votre `htdoc
 
 ### 2. Base de données
 
-1. Ouvrir **phpMyAdmin** (ou un client MySQL)
-2. Créer une base nommée `axiom`
-3. Importer le fichier SQL du projet axiom.sql
+Le fichier [axiom.sql](axiom.sql) contient la structure complète et les données initiales de la base.
+
+**Tables créées :**
+
+| Table | Description |
+|-------|-------------|
+| `utilisateurs` | Comptes clients et administrateurs |
+| `adresses` | Adresses de facturation et livraison |
+| `categories` | 4 catégories de pièces (Moteur, Freinage, Carrosserie, Intérieur) |
+| `produits` | Catalogue de pièces avec prix, stock et image |
+| `panier` / `panier_produit` | Panier d'achat par utilisateur |
+| `commandes` / `commande_produit` | Historique des commandes |
+| `paiements` | Suivi des paiements (carte, PayPal, Stripe) |
+| `favoris` | Produits mis en favoris par les utilisateurs |
+| `avis` | Avis et notes sur les produits |
+| `promotions` / `produit_promotion` | Codes promo (pourcentage ou montant fixe) |
+
+**Données initiales incluses :** 4 catégories et 5 produits de démonstration.
+
+**Importation via phpMyAdmin :**
+
+1. Ouvrir **phpMyAdmin** (`http://localhost/phpmyadmin`)
+2. Créer une base nommée `axiom` (collation `utf8mb4_unicode_ci`)
+3. Sélectionner la base `axiom`, onglet **Importer**
+4. Choisir le fichier `axiom.sql` et cliquer **Exécuter**
+
+**Importation en ligne de commande :**
+
+```bash
+mysql -u root -p axiom < axiom.sql
+```
 
 ### 3. Configuration de la base de données
 
