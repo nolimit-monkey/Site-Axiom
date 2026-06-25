@@ -17,6 +17,34 @@ Site e-commerce en PHP (architecture MVC) pour la vente de pièces détachées p
 
 ---
 
+## ⚠️ Configuration base de données — À LIRE AVANT DE LANCER
+
+Cette application utilise **MySQL 8 (service Windows `MySQL80`)**, PAS le MySQL/MariaDB de XAMPP.
+La base `axiom` vit dans : `C:\ProgramData\MySQL\MySQL Server 8.0\Data`
+
+### 🚫 NE JAMAIS démarrer MySQL dans le panneau XAMPP
+MySQL 8 et la MariaDB de XAMPP veulent tous les deux le port **3306**.
+Les lancer ensemble = conflit de port + plantage. Dans XAMPP, **démarrer Apache UNIQUEMENT**, laisser MySQL en rouge.
+
+### Démarrage normal
+1. MySQL 8 démarre tout seul avec Windows (service auto). Rien à faire.
+   - Pour vérifier : `sc query MySQL80` → doit être `RUNNING`
+   - Si arrêté : `net start MySQL80` (cmd admin)
+2. Démarrer **Apache** dans XAMPP (pas MySQL).
+3. phpMyAdmin : `http://localhost/phpmyadmin` → connecté à MySQL 8.
+4. Lancer l'application.
+
+### Connexion
+- Host : `localhost` (port 3306) · Base : `axiom` · User : `root` · Password : *(vide)*
+- root est en `mysql_native_password`, mot de passe vide (config locale dev uniquement).
+
+### En cas de "Access denied" ou plantage MySQL
+- Vérifier qu'aucun `mysqld` ne tourne en double : `tasklist | findstr mysqld`
+- Vérifier qui tient 3306 : `netstat -ano | findstr :3306`
+- NE PAS lancer de commandes mysql/mysqld depuis un dossier random : le PATH peut viser le mauvais binaire. Toujours `cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"` d'abord.
+
+---
+
 ## Installation
 
 ### 1. Cloner le dépôt
@@ -91,7 +119,7 @@ Et que le VirtualHost autorise les overrides :
 
 ### 5. Lancer le projet
 
-Démarrer **Apache** et **MySQL** depuis le panneau XAMPP, puis ouvrir :
+Démarrer **Apache** depuis le panneau XAMPP (**MySQL doit rester en rouge** — voir section ⚠️ ci-dessus), puis ouvrir :
 
 ```
 http://localhost/axiom/site-axiome
